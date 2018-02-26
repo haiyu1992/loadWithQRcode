@@ -1,0 +1,123 @@
+<html>
+<head>
+  <title>Safe Overseas</title>
+</head>
+<style>
+h1{
+  font-size:60pt;
+  color:#eee;
+  text-align:right;
+  magin:0px;
+}
+body{
+  font-size:12pt;
+  color:#999;
+  magin:5px;
+}
+p{
+  font-size:14pt;
+  magin:0px 20px;
+}
+table{
+  magin:20px;
+  width:80%;
+}
+table tr th{
+  background-color:#999;
+  color:#fff;
+  text-align:center;
+  padding:3px 10px;
+  width:30%;
+}
+table tr td{
+  background-color:#eee;
+  color:#666;
+  text-align:left;
+  padding:3px 10px;
+  width:100%;
+}
+table td input{
+    border:none;
+    background: transparent;
+    font-size:14pt;
+}
+
+#submit_table {
+    padding: 10px 30px;
+    margin-top:5px;
+    font-size: 1.2em;
+    background-color: #999;
+    color: #fff;
+    border-style: none;
+}
+select{
+    background: transparent;
+    font-size:14pt;
+}
+</style>
+<body>
+<h1>error collection</h1>
+<form>
+<center>
+<table>
+  <tr>
+    <th><p>paper size</p></th>
+    <td><p><input type="text" name="paper_size" id="paper_size"></p></td>
+  </tr>
+  <tr>
+    <th><p>color mode</p></th>
+    <td><input type="text" name="color_mode" id="color_mode"></td>
+  </tr>
+  <tr>
+    <th><p>paper direction</p></th>
+    <td><input type="text" name="paper_direction" id="paper_direction"></td>
+  </tr>
+  <tr>
+    <th><p>finisher-staple<p></th>
+    <td><input type="text" name="finisher" id="finisher"></td>
+  </tr>
+  <tr>
+    <th><p>printing problem<p></th>
+    <td>
+      <select name="select" id="select" required>
+        <option value="">None</option>
+        <option value="out of position">out of position</option>
+        <option value="dirty printed">dity printed</option>
+        <option value="wrongly spelled">wrongly spelled</option>
+        <option value="functions not work">functions not work</option>
+        <option value="out of range">out of range</option>
+     </select>
+   </td>
+  </tr>
+</table>
+</center>
+<center><input type="submit" name="submit_table" id="submit_table" value="save"></center>
+</form>
+<script>
+ /*seperate url parameters*/
+    var urlParam = location.search.substring(1); // URLのパラメータを取得
+    if(urlParam) {
+        var param = urlParam.split('&');
+        var paramArray = [];
+          for (i = 0; i < param.length; i++) {
+          var paramItem = param[i].split('=');
+           paramArray[paramItem[0]] = paramItem[1];
+              }
+            }
+ /*pass the parameters to IDs*/
+     document.getElementById('paper_size').value=paramArray.size;
+     document.getElementById('color_mode').value=paramArray.mode;
+     document.getElementById('paper_direction').value=paramArray.direction;
+     document.getElementById('finisher').value=paramArray.finisher;
+</script>
+
+
+</body>
+
+
+
+
+
+
+
+</html>
